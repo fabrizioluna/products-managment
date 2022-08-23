@@ -14,24 +14,28 @@ public class ProductService {
     @Autowired
     ProductRepo productRepo;
 
-    public ArrayList<Product> getAll(){
-        return (ArrayList<Product>) productRepo.findAll();
-    }
-
-    public Product save(Product product){
-        return productRepo.save(product);
-    }
-
-    public Optional<Product> get(Long id){
+    public Optional<Product> existProduct(Long id) {
         return productRepo.findById(id);
     }
 
-    public String delete(Long id){
+    public ArrayList<Product> getAll() {
+        return (ArrayList<Product>) productRepo.findAll();
+    }
+
+    public Product save(Product product) {
+        return productRepo.save(product);
+    }
+
+    public Product get(Long id) {
+        return productRepo.findById(id).get();
+    }
+
+    public String delete(Long id) {
         Optional<Product> product = productRepo.findById(id);
-        if(product.isPresent()){
+        if (product.isPresent()) {
             productRepo.deleteById(id);
             return "This product has been deleted.";
-        } 
+        }
         return "We can't find this product id.";
     }
 }

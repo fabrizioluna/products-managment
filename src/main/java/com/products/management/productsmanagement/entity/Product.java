@@ -1,17 +1,17 @@
 package com.products.management.productsmanagement.entity;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
+// import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
+// import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -43,13 +43,8 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = false, updatable = false)
     private Category category;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "product_sales", joinColumns = {
-            @JoinColumn(name = "product_id")
-    }, inverseJoinColumns = {
-            @JoinColumn(name = "sale_id")
-    })
-    private List<Sale> sales = new ArrayList<Sale>();
+    @ManyToMany
+    private List<Sale> sales;
 
     public Product() {
     }
@@ -75,20 +70,12 @@ public class Product {
         this.category = category;
     }
 
-    public List<Sale> getSales() {
-        return this.sales;
-    }
-
     public Brand getBrand() {
         return this.brand;
     }
 
     public void setBrand(Brand brand) {
         this.brand = brand;
-    }
-
-    public void setSales(List<Sale> sales) {
-        this.sales = sales;
     }
 
     public Category getCategory() {

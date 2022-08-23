@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.products.management.productsmanagement.entity.Product;
 import com.products.management.productsmanagement.services.ProductService;
-import com.products.management.utils.CurrentDate;
+import com.products.management.productsmanagement.utils.CurrentDate;
 
 @RestController
 @RequestMapping("/inventory")
@@ -26,6 +26,11 @@ public class InventoryController {
     public ArrayList<Product> getProducts() {
         return productService.getAll();
     }
+    
+    // @GetMapping("/get_products")
+    // public Product getProduct(@PathVariable("id") Long) {
+    //     return productService.get();
+    // }
 
     @PostMapping("/create_product")
     public Product createProduct(@Validated @RequestBody Product product) {

@@ -14,7 +14,7 @@ public class PayMethod {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-    private Integer method_pay;
+    private String method_pay;
 
     public Long getId() {
         return this.id;
@@ -24,11 +24,11 @@ public class PayMethod {
         this.id = id;
     }
 
-    public Integer getMethod_pay() {
+    public String getMethod_pay() {
         return this.method_pay;
     }
 
-    public void setMethod_pay(Integer method_pay) {
+    public void setMethod_pay(String method_pay) {
         this.method_pay = method_pay;
     }
 
