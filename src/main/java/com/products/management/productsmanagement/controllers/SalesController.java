@@ -23,3 +23,5 @@ public class SalesController {
         return SaleHandler.registerSale(sale);
     }
 }
+
+// Ya quedo toda la parte de la venta de productos
